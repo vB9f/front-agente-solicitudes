@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import AuthProvider from './AuthProvider';
 
 export const metadata = {
-  title: 'MiTiendaGPT',
+  title: 'Multiagente de Reembolsos',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -13,9 +13,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="flex h-screen bg-gray-50">
         <AuthProvider>
           <aside className="w-64 bg-neutral-900 text-white p-4 text-xl font-semibold">
-            MiTiendaGPT
+            Multiagente - Reembolsos
           </aside>
-          <main className="flex-1 overflow-auto bg-gray-100 p-6">
+          <main className="flex-1 overflow-auto bg-gray-900 p-6">
             {children}
           </main>
         </AuthProvider>
