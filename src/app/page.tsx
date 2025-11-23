@@ -34,10 +34,22 @@ export default function Page() {
     setLoading(true);
 
     const userEmail = session.user?.email ?? '';
-    const res = await fetch(
-      `/api/agent?idagente=${encodeURIComponent(userEmail)}&msg=${encodeURIComponent(msg)}`
-    );
-    const texto = await res.text();
+    const userName = session.user?.name ?? 'Usuario Desconocido';
+    const userRole = 'General';
+    const sessionId = userEmail;
+
+    const queryString = new URLSearchParams({
+      // Renombramos los parámetros para que coincidan con lo que app.py espera:
+      id_agente: sessionId,
+      msg: msg,
+      user_role: userRole,
+      username: userEmail,
+      display_name: userName,
+    }).toString();  
+
+    const res = await fetch(`/api/agent?${queryString}`);
+    const data = await res.json();
+    const texto = data.response || "Error: La respuesta del agente no fue válida o no se pudo procesar.";
 
     // Actualizar historial
     setChat((c) => [
