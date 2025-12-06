@@ -35,19 +35,22 @@ export default function Page() {
 
     const userEmail = session.user?.email ?? '';
     const userName = session.user?.name ?? 'Usuario Desconocido';
-    const userRole = 'General';
     const sessionId = userEmail;
 
-    const queryString = new URLSearchParams({
-      // Renombramos los parámetros para que coincidan con lo que app.py espera:
+    const payload = {
       id_agente: sessionId,
       msg: msg,
-      user_role: userRole,
       username: userEmail,
       display_name: userName,
-    }).toString();  
+    }; 
 
-    const res = await fetch(`/api/agent?${queryString}`);
+    const res = await fetch(`/api/agent`, { 
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload), 
+    });
     const data = await res.json();
     const texto = data.response || "Error: La respuesta del agente no fue válida o no se pudo procesar.";
 
