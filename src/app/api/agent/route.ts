@@ -37,3 +37,10 @@ export async function POST(request: NextRequest) {
         }, { status: 500 });
     }
 }
+
+export async function GET(request: NextRequest) {
+    return NextResponse.json({ 
+        error: "Método de Solicitud No Permitido. Use POST.", 
+        status: "error" 
+    }, { status: 405 });
+}
