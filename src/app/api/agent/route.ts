@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
     return NextResponse.json({ 
-        error: "Método de Solicitud No Permitido. Use POST.", 
+        error: "Método de solicitud no permitido. Use POST.", 
         status: "error" 
     }, { status: 405 });
 }
