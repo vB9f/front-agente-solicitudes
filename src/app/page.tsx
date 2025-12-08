@@ -40,6 +40,7 @@ export default function Page() {
 const urlParams = new URLSearchParams({
       id_agente: sessionId,
       msg: msg,
+      user_role: "General",
       username: userEmail,
       display_name: userName,
     });
