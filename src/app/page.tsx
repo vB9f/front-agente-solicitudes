@@ -37,20 +37,19 @@ export default function Page() {
     const userName = session.user?.name ?? 'Usuario Desconocido';
     const sessionId = userEmail;
 
-    const payload = {
+const urlParams = new URLSearchParams({
       id_agente: sessionId,
       msg: msg,
       username: userEmail,
       display_name: userName,
-    }; 
-
-    const res = await fetch(`/api/agent`, { 
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload), 
     });
+
+    const finalUrl = `/api/agent?${urlParams.toString()}`;
+
+    const res = await fetch(finalUrl, { 
+      method: 'GET'
+    });
+
     const data = await res.json();
     const texto = data.response || "Error: La respuesta del agente no fue válida o no se pudo procesar.";
 
