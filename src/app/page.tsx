@@ -83,7 +83,9 @@ const urlParams = new URLSearchParams({
       {/* BARRA LATERAL (ASIDE) */}
       <div className="flex flex-1 w-full">
         <aside className="w-80 bg-[var(--ui-primary)] text-[var(--foreground)] p-4 border-r border-gray-600/50">
-          <span className='opacity-50'>Historial</span>
+          <span className='opacity-50'>
+            Historial
+          </span>
         </aside>
 
         {/* ÁREA PRINCIPAL */}
