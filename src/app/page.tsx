@@ -73,7 +73,7 @@ const urlParams = new URLSearchParams({
       </aside>
 
       {/* ÁREA PRINCIPAL: FLEX COLUMN (HEADER SUPERIOR + CHAT CONTENT) */}
-      <div className="flex-1 flex flex-col px-2 py-4">
+      <div className="flex-1 flex flex-col">
         {/* HEADER: */}
         <header className="flex justify-between items-center px-6 py-3 text-[var(--foreground)] bg-gray-900 border-b border-gray-700/50">
             <h1 className="text-xl font-semibold">
