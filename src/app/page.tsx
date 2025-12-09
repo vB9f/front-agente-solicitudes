@@ -80,7 +80,7 @@ const urlParams = new URLSearchParams({
       </header>
 
     {/* ÁREA DE MENSAJES */}
-      <div className="flex-1 overflow-y-auto pb-4 chat-container">
+      <div className="flex-1 overflow-y-auto pb-4 chat-container px-4">
         {chat.map((m, i) => {
           const isUser = m.de === 'usuario';
           return (
@@ -98,7 +98,7 @@ const urlParams = new URLSearchParams({
 
               {/* Contenedor del texto del mensaje */}
               <div 
-                className={`message-text flex-1 px-3`}
+                className={`message-text flex-1`}
               >
                 <div 
                     className={`
