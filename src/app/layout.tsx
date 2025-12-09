@@ -13,10 +13,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <div className="flex h-screen">
           <AuthProvider>
-            <aside className="w-64 bg-[var(--ui-primary)] text-[var(--foreground)] p-4 text-xl font-semibold border-r border-gray-600/50">
-              Multiagente - Reembolsos
+            <aside className="w-80 bg-[var(--ui-primary)] text-[var(--foreground)] p-4 text-xl font-semibold border-r border-gray-600/50">
+              Multiagente de Reembolsos
             </aside>
-            <main className="flex-1 overflow-auto p-6">
+            <main className="flex-1 overflow-auto">
               {children}
             </main>
           </AuthProvider>

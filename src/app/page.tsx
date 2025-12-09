@@ -18,7 +18,7 @@ export default function Page() {
       <div className="h-full flex items-center justify-center">
          <button
           onClick={() => signIn('google')}
-          className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg flex items-center gap-2"
+          className="bg-gray-800 hover:bg-gray-900 text-white font-semibold px-6 py-3 rounded-lg flex items-center gap-2"
         >
           Login
         </button>
@@ -124,7 +124,7 @@ const urlParams = new URLSearchParams({
         <button
           type="submit"
           disabled={loading}
-          className="bg-purple-600 text-white px-6 py-3 rounded disabled:opacity-50 hover:bg-purple-700"
+          className="bg-gray-800 text-white px-6 py-3 rounded disabled:opacity-50 hover:bg-gray-900"
         >
           {loading ? '…' : 'Enviar'}
         </button>
