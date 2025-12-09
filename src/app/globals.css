@@ -60,6 +60,8 @@ body {
     padding: 1rem 0; /* Añadir espacio vertical entre mensajes */
     border-bottom: 1px solid var(--ui-primary); /* Línea separadora sutil */
     margin: 0 -1.5rem; /* Extender la línea de separación a los bordes del padding del main */
+    display: flex; 
+    align-items: flex-start; /* Alinea los ítems a la parte superior (útil para iconos) */
 }
 
 .user-message-wrapper {
@@ -69,11 +71,28 @@ body {
     padding: 1rem 0;
     margin: 0 -1.5rem; /* Extender al borde */
     /* El usuario puede tener un borde inferior más sutil o simplemente nada */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Línea muy sutil */
+    display: flex; 
+    flex-direction: row-reverse; 
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .message-text {
     /* Asegurar que el texto use el color principal */
     color: var(--foreground); 
     line-height: 1.6;
+}
+
+.avatar-icon {
+    width: 2.5rem; /* 40px */
+    height: 2.5rem; /* 40px */
+    border-radius: 9999px; /* Totalmente circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--foreground);
+    /* Color de fondo para que el icono destaque */
+    background-color: var(--ui-primary); 
+    flex-shrink: 0; /* Evita que se encoja cuando el texto es largo */
 }

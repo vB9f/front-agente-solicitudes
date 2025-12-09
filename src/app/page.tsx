@@ -18,9 +18,8 @@ export default function Page() {
       <div className="h-full flex items-center justify-center">
          <button
           onClick={() => signIn('google')}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg flex items-center gap-2"
+          className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg flex items-center gap-2"
         >
-          
           Login
         </button>
       </div>
@@ -65,6 +64,7 @@ const urlParams = new URLSearchParams({
 
   return (
     <div className="h-full flex flex-col p-4">
+      {/* HEADER: */}
       <header className="mb-4 flex justify-between items-center border-b border-[var(--ui-primary)] pb-4">
         <div>
           <span className="font-medium text-[var(--foreground)]">
@@ -81,20 +81,33 @@ const urlParams = new URLSearchParams({
 
     {/* ÁREA DE MENSAJES */}
       <div className="flex-1 overflow-y-auto pb-4 chat-container">
-        {chat.map((m, i) => (
-          <div
-            key={i}
-            className={
-              m.de === 'usuario'
-                ? 'user-message-wrapper'
-                : 'agent-message-wrapper'
-            }
-          >
-            <div className={`message-text max-w-[70%] px-6 ${m.de === 'usuario' ? 'ml-auto text-right' : 'mr-auto text-left'}`}>
-              {m.texto}
+        {chat.map((m, i) => {
+          const isUser = m.de === 'usuario';
+          return (
+            <div
+              key={i}
+              className={isUser ? 'user-message-wrapper' : 'agent-message-wrapper'}
+            >
+              {/* Contenedor del avatar */}
+              <div 
+                className={`avatar-icon mx-3 ${isUser ? 'order-last' : 'order-first'}`}
+              >
+                {/* Usamos las iniciales o un ícono simple. Usaré iniciales como ejemplo. */}
+                {isUser ? session.user?.name?.[0].toUpperCase() || 'U' : 'AI'} 
+              </div>
+
+              {/* Contenedor del texto del mensaje */}
+              <div 
+                className={`message-text max-w-[70%] px-3`}
+              >
+                <div className={`text-base ${isUser ? 'text-right' : 'text-left'}`}>
+                  {m.texto}
+                </div>
+              </div>
+
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* INPUT - MENSAJE */}
@@ -110,7 +123,7 @@ const urlParams = new URLSearchParams({
         <button
           type="submit"
           disabled={loading}
-          className="bg-blue-600 text-white px-4 py-2 rounded disabled:opacity-50"
+          className="bg-purple-600 text-white px-6 py-3 rounded disabled:opacity-50 hover:bg-purple-700"
         >
           {loading ? '…' : 'Enviar'}
         </button>
