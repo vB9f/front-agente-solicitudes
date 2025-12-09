@@ -63,7 +63,7 @@ const urlParams = new URLSearchParams({
   };
 
   return (
-    <div className="h-full flex flex-col p-4">
+    <div className="h-full flex flex-col px-2 py-4">
       {/* HEADER: */}
       <header className="mb-4 flex justify-between items-center border-b border-[var(--ui-primary)] pb-4">
         <div>
