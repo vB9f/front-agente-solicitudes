@@ -90,7 +90,7 @@ const urlParams = new URLSearchParams({
             >
               {/* Contenedor del avatar */}
               <div 
-                className={`avatar-icon mx-3`}
+                className={`avatar-icon mx-2`}
               >
                 {/* Usamos las iniciales o un ícono simple. Usaré iniciales como ejemplo. */}
                 {isUser ? session.user?.name?.[0].toUpperCase() || 'U' : 'AI'} 
