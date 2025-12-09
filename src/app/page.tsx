@@ -88,32 +88,36 @@ const urlParams = new URLSearchParams({
               key={i}
               className={isUser ? 'user-message-wrapper' : 'agent-message-wrapper'}
             >
+              <div
+                className={!isUser ? 'agent-content-block' : 'w-full flex flex-row-reverse justify-end'}
+              >
               {/* Contenedor del avatar */}
-              <div 
-                className={`avatar-icon mx-2`}
-              >
-                {/* Usamos las iniciales o un ícono simple. Usaré iniciales como ejemplo. */}
-                {isUser ? session.user?.name?.[0].toUpperCase() || 'U' : 'AI'} 
-              </div>
-
-              {/* Contenedor del texto del mensaje */}
-              <div 
-                className={`message-text flex-1`}
-              >
                 <div 
-                    className={`
-                        mt-0 max-w-[40%] 
-                        ${isUser 
-                            ? // ESTILOS DEL USUARIO (BURBUJA DINÁMICA Y GRIS SUTIL)
-                              'ml-auto p-3 rounded-xl shadow-md' +
-                              ' bg-[var(--ui-primary)] text-[var(--foreground)]' + 
-                              ' w-fit'
-                            : // ESTILOS DEL AGENTE (TEXTO PLANO)
-                              'text-[var(--foreground)] text-left'
-                        }
-                    `}
+                  className={`avatar-icon mx-2`}
                 >
-                  {m.texto}
+                  {/* Usamos las iniciales o un ícono simple. Usaré iniciales como ejemplo. */}
+                  {isUser ? session.user?.name?.[0].toUpperCase() || 'U' : 'AI'} 
+                </div>
+
+                {/* Contenedor del texto del mensaje */}
+                <div 
+                  className={`message-text flex-1`}
+                >
+                  <div 
+                      className={`
+                          mt-0 max-w-[40%] 
+                          ${isUser 
+                              ? // ESTILOS DEL USUARIO (BURBUJA DINÁMICA Y GRIS SUTIL)
+                                'ml-auto p-3 rounded-xl shadow-md' +
+                                ' bg-[var(--ui-primary)] text-[var(--foreground)]' + 
+                                ' w-fit'
+                              : // ESTILOS DEL AGENTE (TEXTO PLANO)
+                                'text-[var(--foreground)] text-left'
+                          }
+                      `}
+                  >
+                    {m.texto}
+                  </div>
                 </div>
               </div>
             </div>
