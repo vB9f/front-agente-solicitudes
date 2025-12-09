@@ -66,94 +66,94 @@ const urlParams = new URLSearchParams({
   };
 
   return (
-    <div className="flex h-screen w-full">
+    <div className="flex flex-col h-screen w-full">
+      {/* HEADER SUPERIOR (BARRA COMPLETA) */}
+      <header className="flex justify-between items-center px-6 py-3 text-[var(--foreground)] bg-gray-900 border-b border-gray-700/50 flex-shrink-0"> 
+          <h1 className="text-xl font-semibold">
+              Multiagente de Reembolsos
+          </h1>
+          <button
+            onClick={() => signOut()}
+            className="text-sm hover:opacity-75 p-2 rounded-md"
+          >
+            Cerrar sesión
+          </button>
+      </header>
+
       {/* BARRA LATERAL (ASIDE) */}
-      <aside className="w-80 bg-[var(--ui-primary)] text-[var(--foreground)] p-4 text-xl font-semibold border-r border-gray-600/50">
-        <span className='opacity-50'>Navegación</span>
-      </aside>
+      <div className="flex flex-1 w-full">
+        <aside className="w-80 bg-[var(--ui-primary)] text-[var(--foreground)] p-4 text-xl font-semibold border-r border-gray-600/50">
+          <span className='opacity-50'>Navegación</span>
+        </aside>
 
-      {/* ÁREA PRINCIPAL: FLEX COLUMN (HEADER SUPERIOR + CHAT CONTENT) */}
-      <div className="flex-1 flex flex-col">
-        {/* HEADER: */}
-        <header className="flex justify-between items-center px-6 py-3 text-[var(--foreground)] bg-gray-900 border-b border-gray-700/50">
-            <h1 className="text-xl font-semibold">
-                Multiagente de Reembolsos
-            </h1>
-            <button
-              onClick={() => signOut()}
-              className="text-sm hover:opacity-75 p-2 rounded-md"
-            >
-              Cerrar sesión
-            </button>
-        </header>
-
-        {/* CONTENEDOR DE CHAT Y INPUT (Área de scroll) */}
-        <div className="flex-1 flex flex-col px-2 py-4">
-        
-          {/* ÁREA DE MENSAJES */}
-          <div className="flex-1 overflow-y-auto pb-4 chat-container px-4">
-            <div className="max-w-4xl mx-auto w-full">
-              {chat.map((m, i) => {
-                const isUser = m.de === 'usuario';
-                return (
-                  <div
-                    key={i}
-                    className={`${isUser ? 'user-message-wrapper' : 'agent-message-wrapper'} ${i !== 0 ? 'mt-1' : ''}`}
-                  >
-                    {/* Contenedor del avatar */}
-                    <div 
-                      className={`avatar-icon mx-1`}
+        {/* ÁREA PRINCIPAL: FLEX COLUMN (HEADER SUPERIOR + CHAT CONTENT) */}
+        <div className="flex-1 flex flex-col">
+          {/* CONTENEDOR DE CHAT Y INPUT (Área de scroll) */}
+          <div className="flex-1 flex flex-col px-2 py-4">
+            {/* ÁREA DE MENSAJES */}
+            <div className="flex-1 overflow-y-auto pb-4 chat-container px-4">
+              <div className="max-w-4xl mx-auto w-full">
+                {chat.map((m, i) => {
+                  const isUser = m.de === 'usuario';
+                  return (
+                    <div
+                      key={i}
+                      className={`${isUser ? 'user-message-wrapper' : 'agent-message-wrapper'} ${i !== 0 ? 'mt-1' : ''}`}
                     >
-                      {/* Usamos las iniciales o un ícono simple. Usaré iniciales como ejemplo. */}
-                      {isUser ? session.user?.name?.[0].toUpperCase() || 'U' : 'AI'} 
-                    </div>
-
-                    {/* Contenedor del texto del mensaje */}
-                    <div 
-                      className={`message-text px-3 max-w-[60%] ${!isUser ? 'inline-block' : ''}`}
-                    >
+                      {/* Contenedor del avatar */}
                       <div 
-                          className={`
-                              w-full
-                              ${isUser 
-                                  ? // ESTILOS DEL USUARIO (BURBUJA DINÁMICA Y GRIS SUTIL)
-                                    'ml-auto p-3 rounded-xl shadow-md' +
-                                    ' bg-[var(--ui-primary)] text-[var(--foreground)]' + 
-                                    ' w-fit'
-                                  : // ESTILOS DEL AGENTE (TEXTO PLANO)
-                                    'text-[var(--foreground)] text-left'
-                              }
-                          `}
+                        className={`avatar-icon mx-1`}
                       >
-                        {m.texto}
+                        {/* Usamos las iniciales o un ícono simple. Usaré iniciales como ejemplo. */}
+                        {isUser ? session.user?.name?.[0].toUpperCase() || 'U' : 'AI'} 
+                      </div>
+
+                      {/* Contenedor del texto del mensaje */}
+                      <div 
+                        className={`message-text px-3 max-w-[60%] ${!isUser ? 'inline-block' : ''}`}
+                      >
+                        <div 
+                            className={`
+                                w-full
+                                ${isUser 
+                                    ? // ESTILOS DEL USUARIO (BURBUJA DINÁMICA Y GRIS SUTIL)
+                                      'ml-auto p-3 rounded-xl shadow-md' +
+                                      ' bg-[var(--ui-primary)] text-[var(--foreground)]' + 
+                                      ' w-fit'
+                                    : // ESTILOS DEL AGENTE (TEXTO PLANO)
+                                      'text-[var(--foreground)] text-left'
+                                }
+                            `}
+                        >
+                          {m.texto}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
-      
-
-          {/* INPUT - MENSAJE */}
-          <div className="mt-2 pt-4 flex justify-center border-t border-[var(--ui-primary)]">
-            <form onSubmit={enviar} className="flex gap-2 w-full max-w-4xl">
-              <input
-                className="flex-1 input-box px-4 py-3"
-                placeholder="Preguntarle al agente"
-                value={msg}
-                onChange={(e) => setMsg(e.target.value)}
-                disabled={loading}
-                required
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                className="bg-gray-800 text-white px-6 py-3 rounded disabled:opacity-50 hover:bg-gray-900"
-              >
-                {loading ? '…' : 'Enviar'}
-              </button>
-            </form>
+        
+            {/* INPUT - MENSAJE */}
+            <div className="mt-2 pt-4 flex justify-center border-t border-[var(--ui-primary)]">
+              <form onSubmit={enviar} className="flex gap-2 w-full max-w-4xl">
+                <input
+                  className="flex-1 input-box px-4 py-3"
+                  placeholder="Preguntarle al agente"
+                  value={msg}
+                  onChange={(e) => setMsg(e.target.value)}
+                  disabled={loading}
+                  required
+                />
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="bg-gray-800 text-white px-6 py-3 rounded disabled:opacity-50 hover:bg-gray-900"
+                >
+                  {loading ? '…' : 'Enviar'}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
