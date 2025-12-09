@@ -100,8 +100,12 @@ const urlParams = new URLSearchParams({
               <div 
                 className={`message-text flex-1 px-3`}
               >
-                <div
-                  className={`max-w-[70%] ${isUser ? 'ml-auto text-right' : 'text-left'}`}
+                <div 
+                    className={`max-w-[70%] text-left ${
+                        isUser 
+                            ? 'ml-auto text-gray-900 bg-white p-3 rounded-lg shadow-md' 
+                            : 'text-[var(--foreground)]'
+                    }`}
                 >
                   {m.texto}
                 </div>
