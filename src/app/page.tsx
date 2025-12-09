@@ -34,14 +34,12 @@ export default function Page() {
     setLoading(true);
 
     const userEmail = session.user?.email ?? '';
-    const userName = session.user?.name ?? 'Usuario Desconocido';
+    const userName = session.user?.name ?? 'Usuario desconocido';
     const sessionId = userEmail;
 
 const urlParams = new URLSearchParams({
       id_agente: sessionId,
       msg: msg,
-      user_role: "General",
-      username: userEmail,
       display_name: userName,
     });
 

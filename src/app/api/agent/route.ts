@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
   // Configuración de la URL base de tu backend de Cloud Run (sin los parámetros finales)
-  const backendUrl = 'https://apicloudia-10225299185.us-west4.run.app/agent';
+  const backendUrl = 'https://apicloudia-10225299185.us-central1.run.app/agent';
 
   // Recrea la URL de tu API remota usando los parámetros de consulta capturados del frontend
   const url = `${backendUrl}?` +
