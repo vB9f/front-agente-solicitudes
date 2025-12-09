@@ -10,15 +10,17 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es">
-      <body className="flex h-screen bg-gray-50">
-        <AuthProvider>
-          <aside className="w-64 bg-neutral-900 text-white p-4 text-xl font-semibold">
-            Multiagente - Reembolsos
-          </aside>
-          <main className="flex-1 overflow-auto bg-gray-900 p-6">
-            {children}
-          </main>
-        </AuthProvider>
+      <body>
+        <div className="flex h-screen">
+          <AuthProvider>
+            <aside className="w-64 bg-[var(--ui-primary)] text-[var(--foreground)] p-4 text-xl font-semibold border-r border-gray-600/50">
+              Multiagente - Reembolsos
+            </aside>
+            <main className="flex-1 overflow-auto p-6">
+              {children}
+            </main>
+          </AuthProvider>
+        </div>
       </body>
     </html>
   );
