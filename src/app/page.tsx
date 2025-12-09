@@ -102,7 +102,7 @@ const urlParams = new URLSearchParams({
               >
                 <div 
                     className={`
-                        max-w-[70%] 
+                        mt-0 max-w-[70%] 
                         ${isUser 
                             ? // ESTILOS DEL USUARIO (BURBUJA DINÁMICA Y GRIS SUTIL)
                               'ml-auto p-3 rounded-xl shadow-md' +
