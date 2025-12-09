@@ -98,10 +98,3 @@ body {
     background-color: var(--ui-primary); 
     flex-shrink: 0; /* Evita que se encoja cuando el texto es largo */
 }
-
-.agent-content-block {
-    /* Permite que el contenedor del contenido solo ocupe el espacio necesario */
-    display: inline-flex; 
-    /* Alineación de texto y avatar */
-    align-items: flex-start;
-}
