@@ -30,3 +30,19 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   transition: background 0.3s ease, color 0.3s ease;
 }
+
+.chat-area {
+    /* Usar el gris más claro para destacar el área del chat sobre el fondo principal */
+    background-color: var(--ui-primary);
+    border: 1px solid var(--ui-primary);
+    border-radius: 0.5rem; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.input-box {
+    /* Fondo de la caja de texto */
+    background-color: var(--background); 
+    color: var(--foreground);
+    border: 1px solid var(--ui-primary); /* Borde sutil */
+    border-radius: 0.5rem;
+}
