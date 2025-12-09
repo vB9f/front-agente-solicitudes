@@ -46,3 +46,34 @@ body {
     border: 1px solid var(--ui-primary); /* Borde sutil */
     border-radius: 0.5rem;
 }
+
+.chat-container {
+    /* Usar el color principal de la UI para un ligero contraste con el fondo del body */
+    background-color: var(--background); 
+    padding: 0; /* Asegurar que no haya padding global si el fondo es el mismo */
+}
+
+.agent-message-wrapper {
+    /* NO debe tener fondo de burbuja. Simplemente usa el fondo principal. */
+    background-color: transparent; 
+    border-radius: 0;
+    padding: 1rem 0; /* Añadir espacio vertical entre mensajes */
+    border-bottom: 1px solid var(--ui-primary); /* Línea separadora sutil */
+    margin: 0 -1.5rem; /* Extender la línea de separación a los bordes del padding del main */
+}
+
+.user-message-wrapper {
+    /* Igual, sin fondo de burbuja, fondo transparente */
+    background-color: transparent;
+    border-radius: 0;
+    padding: 1rem 0;
+    margin: 0 -1.5rem; /* Extender al borde */
+    /* El usuario puede tener un borde inferior más sutil o simplemente nada */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Línea muy sutil */
+}
+
+.message-text {
+    /* Asegurar que el texto use el color principal */
+    color: var(--foreground); 
+    line-height: 1.6;
+}
