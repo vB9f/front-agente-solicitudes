@@ -122,23 +122,25 @@ const urlParams = new URLSearchParams({
       </div>
 
       {/* INPUT - MENSAJE */}
-      <form onSubmit={enviar} className="mt-2 pt-4 flex gap-2 border-t border-[var(--ui-primary)]">
-        <input
-          className="flex-1 input-box px-4 py-3"
-          placeholder="Preguntarle al agente"
-          value={msg}
-          onChange={(e) => setMsg(e.target.value)}
-          disabled={loading}
-          required
-        />
-        <button
-          type="submit"
-          disabled={loading}
-          className="bg-gray-800 text-white px-6 py-3 rounded disabled:opacity-50 hover:bg-gray-900"
-        >
-          {loading ? '…' : 'Enviar'}
-        </button>
-      </form>
+      <div className="mt-2 pt-4 flex justify-center border-t border-[var(--ui-primary)]">
+        <form onSubmit={enviar} className="flex gap-2 w-full max-w-4xl">
+          <input
+            className="flex-1 input-box px-4 py-3"
+            placeholder="Preguntarle al agente"
+            value={msg}
+            onChange={(e) => setMsg(e.target.value)}
+            disabled={loading}
+            required
+          />
+          <button
+            type="submit"
+            disabled={loading}
+            className="bg-gray-800 text-white px-6 py-3 rounded disabled:opacity-50 hover:bg-gray-900"
+          >
+            {loading ? '…' : 'Enviar'}
+          </button>
+        </form>
+      </div>
     </div>
 );
 }
