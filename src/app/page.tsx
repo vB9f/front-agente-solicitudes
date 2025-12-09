@@ -87,7 +87,7 @@ const urlParams = new URLSearchParams({
             return (
               <div
                 key={i}
-                className={`${isUser ? 'user-message-wrapper' : 'agent-message-wrapper'} mt-1`}
+                className={`${isUser ? 'user-message-wrapper' : 'agent-message-wrapper'} ${i !== 0 ? 'mt-1' : ''}`}
               >
                 {/* Contenedor del avatar */}
                 <div 
