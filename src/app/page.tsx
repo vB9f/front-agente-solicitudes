@@ -68,9 +68,9 @@ const urlParams = new URLSearchParams({
   return (
     <div className="flex flex-col h-screen w-full">
       {/* HEADER SUPERIOR (BARRA COMPLETA) */}
-      <header className="flex justify-between items-center px-6 py-3 text-[var(--foreground)] bg-gray-900 border-b border-gray-700/50 flex-shrink-0"> 
+      <header className="flex justify-between items-center px-6 py-3 text-[var(--foreground)] bg-gray-900 border-b border-gray-700/50">
           <h1 className="text-xl font-semibold">
-              Multiagente de Reembolsos
+              Multiagente de reembolsos
           </h1>
           <button
             onClick={() => signOut()}
@@ -82,11 +82,11 @@ const urlParams = new URLSearchParams({
 
       {/* BARRA LATERAL (ASIDE) */}
       <div className="flex flex-1 w-full">
-        <aside className="w-80 bg-[var(--ui-primary)] text-[var(--foreground)] p-4 text-xl font-semibold border-r border-gray-600/50">
-          <span className='opacity-50'>Navegación</span>
+        <aside className="w-80 bg-[var(--ui-primary)] text-[var(--foreground)] p-4 border-r border-gray-600/50">
+          <span className='opacity-50'>Historial</span>
         </aside>
 
-        {/* ÁREA PRINCIPAL: FLEX COLUMN (HEADER SUPERIOR + CHAT CONTENT) */}
+        {/* ÁREA PRINCIPAL */}
         <div className="flex-1 flex flex-col">
           {/* CONTENEDOR DE CHAT Y INPUT (Área de scroll) */}
           <div className="flex-1 flex flex-col px-2 py-4">
