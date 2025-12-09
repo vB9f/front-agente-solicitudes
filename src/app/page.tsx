@@ -101,11 +101,17 @@ const urlParams = new URLSearchParams({
                 className={`message-text flex-1 px-3`}
               >
                 <div 
-                    className={`max-w-[70%] text-left ${
-                        isUser 
-                            ? 'ml-auto text-gray-900 bg-white p-3 rounded-lg shadow-md' 
-                            : 'text-[var(--foreground)]'
-                    }`}
+                    className={`
+                        max-w-[70%] 
+                        ${isUser 
+                            ? // ESTILOS DEL USUARIO (BURBUJA DINÁMICA Y GRIS SUTIL)
+                              'ml-auto p-3 rounded-xl shadow-md' +
+                              ' bg-[var(--ui-primary)] text-[var(--foreground)]' + 
+                              ' w-fit'
+                            : // ESTILOS DEL AGENTE (TEXTO PLANO)
+                              'text-[var(--foreground)] text-left'
+                        }
+                    `}
                 >
                   {m.texto}
                 </div>
