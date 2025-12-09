@@ -90,7 +90,7 @@ const urlParams = new URLSearchParams({
             >
               {/* Contenedor del avatar */}
               <div 
-                className={`avatar-icon mx-3 ${isUser ? 'order-last' : 'order-first'}`}
+                className={`avatar-icon mx-3`}
               >
                 {/* Usamos las iniciales o un ícono simple. Usaré iniciales como ejemplo. */}
                 {isUser ? session.user?.name?.[0].toUpperCase() || 'U' : 'AI'} 
@@ -98,13 +98,14 @@ const urlParams = new URLSearchParams({
 
               {/* Contenedor del texto del mensaje */}
               <div 
-                className={`message-text max-w-[70%] px-3`}
+                className={`message-text flex-1 px-3`}
               >
-                <div className={`text-base ${isUser ? 'text-right' : 'text-left'}`}>
+                <div
+                  className={`max-w-[70%] ${isUser ? 'ml-auto text-right' : 'text-left'}`}
+                >
                   {m.texto}
                 </div>
               </div>
-
             </div>
           );
         })}
