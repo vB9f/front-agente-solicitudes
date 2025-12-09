@@ -58,9 +58,9 @@ body {
     /* NO debe tener fondo de burbuja. Simplemente usa el fondo principal. */
     background-color: transparent; 
     border-radius: 0;
-    padding: 0.2rem 0; /* Espacio vertical entre mensajes */
+    padding: 0.05rem 0; /* Espacio vertical entre mensajes */
     border-bottom: none;
-  margin-top: 0 !important;
+    margin-top: 0 !important;
     margin-bottom: 0 !important;
     display: flex; 
     align-items: flex-start; /* Alinea los ítems a la parte superior (útil para iconos) */
@@ -70,7 +70,7 @@ body {
     /* Igual, sin fondo de burbuja, fondo transparente */
     background-color: transparent;
     border-radius: 0;
-    padding: 0.2rem 0;
+    padding: 0.05rem 0;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     display: flex; 
@@ -82,7 +82,7 @@ body {
 .message-text {
     /* Asegurar que el texto use el color principal */
     color: var(--foreground); 
-    line-height: 1.6;
+    line-height: 1.4;
     margin: 0 !important;
 }
 
